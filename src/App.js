@@ -1,16 +1,17 @@
-import './App.css';
-// import Home from './component/Home/Home';
-import LoginForm from './component/account/LoginForm';
-// import WatchList from './component/watchlist/WatchList';
+import React from "react";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import LoginForm from "./components/account/LoginForm";
+import Home from "./components/Home/Home";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-       {/* <Home/> */}
-       {/* <WatchList/> */}
-       <LoginForm/>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginForm />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
