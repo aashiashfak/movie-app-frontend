@@ -1,0 +1,74 @@
+/* Card.css */
+
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px;
+}
+
+.movie-card {
+  background-color: #151111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  width: 200px;
+  max-width: 200px;
+  max-height: 450px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s;
+  position: relative;
+  padding-bottom: 40px; /* Space for the button */
+  color: #fff;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-poster {
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.movie-title {
+  font-size: 1.1em;
+  margin: 5px 10px;
+}
+
+.movie-info {
+  padding: 0 16px;
+}
+
+.watchlist-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1.5em;
+  line-height: 1em;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.watchlist-button.added {
+  background-color: #ff0000;
+}
+
+.watchlist-button:hover {
+  background-color: #444;
+}
+
+p{
+  margin: 0px auto;
+}

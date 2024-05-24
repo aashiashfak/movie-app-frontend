@@ -1,14 +1,16 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import LoginForm from "./components/account/LoginForm";
-import Home from "./components/Home/Home";
+import LoginForm from "./pages/account/LoginForm";
+import Home from "./pages/Home/Home";
+import Watchlist from "./pages/watchlist/WatchList";
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LoginForm />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/Login" element={<LoginForm />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/Watchlist" element={<Watchlist />} />
       </Routes>
     </Router>
   );

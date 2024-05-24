@@ -14,6 +14,7 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     text-align: center;
+    width: 295px;
 }
 
 input, button {

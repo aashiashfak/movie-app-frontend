@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import axiosInstance from "../axiosInstance";
+import {useDispatch} from "react-redux";
+import {setUser} from "../../redux/userReducer";
+import axiosInstance from "../../components/axiosInstance";
 import "./LoginForm.css";
 
 const LoginForm = () => {
@@ -9,6 +11,7 @@ const LoginForm = () => {
   const [message, setMessage] = useState("");
   const [isOtpSent, setIsOtpSent] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleEmailSubmit = async (event) => {
     event.preventDefault();
@@ -43,10 +46,11 @@ const LoginForm = () => {
     // const nenteredOtp = "777522";
     console.log("otp:", enteredOtp); // Log the OTP before sending
     try {
-      await axiosInstance.post("/accounts/otp-verification/", {
+      const response = await axiosInstance.post("/accounts/otp-verification/", {
         otp: enteredOtp,
       });
-      navigate("/home"); // Navigate to home on successful OTP verification
+      dispatch(setUser(response.data.user));
+      navigate("/"); // Navigate to home on successful OTP verification
     } catch (error) {
       if (error.response) {
         setMessage(error.response.data.error);
