@@ -1,7 +1,7 @@
 import React from "react";
 import {useSelector, useDispatch} from "react-redux";
 import {removeFromWatchlist} from "../../redux/userReducer";
-import "./Watchlist.css";
+import "../../components/card/Card.css";
 import Header from "../../components/header/Header";
 
 function Watchlist() {
@@ -16,24 +16,33 @@ function Watchlist() {
   return (
     <>
       <Header />
-      <div className="watchlist-container">
+      <div className="movie-container">
         {watchlist.length > 0 ? (
           watchlist.map((movie) => (
-            <div key={movie.id} className="card">
+            <div key={movie.id} className="movie-card">
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
+                className="movie-poster"
               />
-              <h2>{movie.title}</h2>
-              <p>{movie.release_date}</p>
-              <p>{movie.vote_average}</p>
-              <button onClick={() => handleRemove(movie)}>
+              <div className="card-body">
+                <h2 className="movie-title">{movie.title}</h2>
+                <div className="movie-info">
+                  <p>Release Date: {movie.release_date}</p>
+                  <p>Rating: {movie.vote_average}</p>
+                  <p>Popularity: {movie.popularity}</p>
+                </div>
+              </div>
+              <button
+                className="remove-btn"
+                onClick={() => handleRemove(movie)}
+              >
                 Remove from Watchlist
               </button>
             </div>
           ))
         ) : (
-          <p style={{color:"white"}}>Your watchlist is empty.</p>
+          <p style={{color: "white"}}>Your watchlist is empty.</p>
         )}
       </div>
     </>
