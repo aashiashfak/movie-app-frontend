@@ -50,7 +50,8 @@ const LoginForm = () => {
         otp: enteredOtp,
         email,
       });
-      dispatch(setUser(response.data.user));
+      console.log("response.data....",response.data)
+      dispatch(setUser(response.data));
       navigate("/"); // Navigate to home on successful OTP verification
     } catch (error) {
       if (error.response) {

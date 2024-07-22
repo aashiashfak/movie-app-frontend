@@ -5,9 +5,10 @@ import {clearUser} from "../../redux/userReducer";
 import "./Header.css";
 
 function Header() {
-  const user = useSelector((state) => state.user.user);
+  const user = useSelector((state) => state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  console.log('user.........',user)
 
   const handleLogout = () => {
     dispatch(clearUser());
@@ -15,13 +16,13 @@ function Header() {
   };
 
   return (
-    <header className="header">
+    <header className="header ">
       <div className="left-section" >
         <div>
           <h1 className="logo">Movie App</h1>
         </div>
         {user && <div style={{padding:'24px'}}>
-           <span className="username">Hello,{user.username}</span>
+           <span className="username">Hello,{user.user.user.username}</span>
         </div>}
       </div>
       <nav className="nav">
