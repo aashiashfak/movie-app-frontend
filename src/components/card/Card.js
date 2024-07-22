@@ -16,6 +16,7 @@ function Card() {
       .then((res) => res.json())
       .then((json) => {
         console.log(json);
+        console.log("hai")
         setMovies(json.results);
       })
       .catch((error) => console.error("Error fetching movies:", error));

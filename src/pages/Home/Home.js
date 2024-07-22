@@ -7,7 +7,6 @@ function Home() {
     <div style={{backgroundColor: '#151111'}}>
       <Header />
       <Card />
-      Welcome Home
     </div>
   );
 }
