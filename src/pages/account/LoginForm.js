@@ -48,6 +48,7 @@ const LoginForm = () => {
     try {
       const response = await axiosInstance.post("/accounts/otp-verification/", {
         otp: enteredOtp,
+        email,
       });
       dispatch(setUser(response.data.user));
       navigate("/"); // Navigate to home on successful OTP verification
