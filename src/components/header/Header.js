@@ -34,7 +34,7 @@ function Header() {
         <Link to="/watchlist" className="link">
           Watchlist
         </Link>
-        {user ? (
+        {user && user.user? (
           <button className="button" onClick={handleLogout}>
             Logout
           </button>
